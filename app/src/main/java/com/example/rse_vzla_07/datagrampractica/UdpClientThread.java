@@ -51,7 +51,9 @@ public class UdpClientThread extends Thread {
             socket = new DatagramSocket();
             address = InetAddress.getByName(dstAddress);
 
-            byte[] buf = new byte[256];
+            String msg = handler.getMessage();
+            byte[] buf = msg.getBytes();
+//            byte[] buf = new byte[256];
 
             DatagramPacket packet =
                     new DatagramPacket(buf, buf.length, address, dstPort);
